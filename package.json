@@ -16,6 +16,10 @@
       {
         "command": "aura-lang.new",
         "title": "Aura: New Project"
+      },
+      {
+        "command": "aura-lang.build",
+        "title": "Aura: Build Project"
       }
     ]
   },
