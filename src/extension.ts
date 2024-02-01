@@ -63,8 +63,28 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
+    let disposableRun = vscode.commands.registerCommand('aura-lang.run', () => {
+        if (vscode.workspace.workspaceFolders === undefined) {
+            vscode.window.showErrorMessage("Please open an Aura project before running this command");
+        } else {
+            let projCwd: vscode.Uri = vscode.Uri.parse(vscode.workspace.workspaceFolders[0].uri.path);
+            exec('aura run', {
+                cwd: projCwd.fsPath
+            }, (err: ExecException | null, stdout: string, stderr: string) => {
+                if (err !== null) {
+                    vscode.window.showErrorMessage(err.message);
+                } else if (stderr !== "") {
+                    vscode.window.showErrorMessage(stderr);
+                } else {
+                    vscode.window.showInformationMessage(stdout);
+                }
+            });
+        }
+    });
+
 	context.subscriptions.push(disposableNew);
     context.subscriptions.push(disposableBuild);
+    context.subscriptions.push(disposableRun);
 }
 
 // This method is called when your extension is deactivated

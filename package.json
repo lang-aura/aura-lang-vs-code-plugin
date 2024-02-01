@@ -20,6 +20,10 @@
       {
         "command": "aura-lang.build",
         "title": "Aura: Build Project"
+      },
+      {
+        "command": "aura-lang.run",
+        "title": "Aura: Run Project"
       }
     ]
   },
