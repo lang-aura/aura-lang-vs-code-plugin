@@ -82,9 +82,29 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
+    let disposableFmt = vscode.commands.registerCommand('aura-lang.fmt', () => {
+        if (vscode.workspace.workspaceFolders === undefined) {
+            vscode.window.showErrorMessage("Please open an Aura project before running this command");
+        } else {
+            let projCwd: vscode.Uri = vscode.Uri.parse(vscode.workspace.workspaceFolders[0].uri.path);
+            exec('aura fmt', {
+                cwd: projCwd.fsPath
+            }, (err: ExecException | null, _: string, stderr: string) => {
+                if (err !== null) {
+                    vscode.window.showErrorMessage(err.message);
+                } else if (stderr !== "") {
+                    vscode.window.showErrorMessage(stderr);
+                } else {
+                    vscode.window.showInformationMessage("Aura project successfully formatted.");
+                }
+            });
+        }
+    });
+
 	context.subscriptions.push(disposableNew);
     context.subscriptions.push(disposableBuild);
     context.subscriptions.push(disposableRun);
+    context.subscriptions.push(disposableFmt);
 }
 
 // This method is called when your extension is deactivated

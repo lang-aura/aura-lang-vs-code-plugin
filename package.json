@@ -24,6 +24,10 @@
       {
         "command": "aura-lang.run",
         "title": "Aura: Run Project"
+      },
+      {
+        "command": "aura-lang.fmt",
+        "title": "Aura: Fmt Project"
       }
     ]
   },
