@@ -6,15 +6,10 @@ import { ExecException, exec } from 'node:child_process';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "aura-lang" is now active!');
-
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('aura-lang.new', () => {
+	let disposableNew = vscode.commands.registerCommand('aura-lang.new', () => {
 		// The code you place here will be executed every time your command is executed
         vscode.window.showInputBox({
             prompt: "Enter project name",
@@ -49,7 +44,27 @@ export function activate(context: vscode.ExtensionContext) {
         });
 	});
 
-	context.subscriptions.push(disposable);
+    let disposableBuild = vscode.commands.registerCommand('aura-lang.build', () => {
+        if (vscode.workspace.workspaceFolders === undefined) {
+            vscode.window.showErrorMessage("Please open an Aura project before running this command");
+        } else {
+            let projCwd: vscode.Uri = vscode.Uri.parse(vscode.workspace.workspaceFolders[0].uri.path);
+            exec('aura build', {
+                cwd: projCwd.fsPath
+            }, (err: ExecException | null, _: string, stderr: string) => {
+                if (err !== null) {
+                    vscode.window.showErrorMessage(err.message);
+                } else if (stderr !== "") {
+                    vscode.window.showErrorMessage(stderr);
+                } else {
+                    vscode.window.showInformationMessage("Aura project successfully built.");
+                }
+            });
+        }
+    });
+
+	context.subscriptions.push(disposableNew);
+    context.subscriptions.push(disposableBuild);
 }
 
 // This method is called when your extension is deactivated
