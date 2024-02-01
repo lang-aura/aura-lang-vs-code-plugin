@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "aura-lang.helloWorld",
-        "title": "Hello World"
+        "command": "aura-lang.new",
+        "title": "Aura: New Project"
       }
     ]
   },
