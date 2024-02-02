@@ -29,7 +29,22 @@
         "command": "aura-lang.fmt",
         "title": "Aura: Fmt Project"
       }
-    ]
+    ],
+    "languages": [
+        {
+            "id": "aura",
+            "aliases": ["Aura", "aura"],
+            "extensions": [".aura"],
+            "configuration": "./language-configuration.json"
+        }
+    ],
+    "grammars": [
+        {
+          "language": "aura",
+          "scopeName": "source.aura",
+          "path": "./syntaxes/aura.tmLanguage.json"
+        }
+      ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

@@ -1,0 +1,90 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Aura",
+	"patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#blockComments"
+        },
+        {
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+        {
+            "match": "\\+",
+            "name": "keyword.operator.new" 
+        },
+        {
+            "match": "\\-",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\/",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\*",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\=",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\>",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\<",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\!",
+            "name": "keyword.operator.new"
+        },
+        {
+            "match": "\\b[0-9]+\\b",
+            "name": "constant.numeric.aura"
+        }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+                {
+                    "name": "keyword.control.aura",
+                    "match": "\\b(if|else|while|for|foreach|return|fn|import|mod|let|pub|in|mut|class|defer|as|yield|check|struct)\\b"
+                }
+            ]
+		},
+		"strings": {
+			"name": "string.quoted.double.aura",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.aura",
+					"match": "\\\\."
+				}
+			]
+		},
+        "comments": {
+            "name": "comment.line",
+            "begin": "//",
+            "end": "\n"
+        },
+        "blockComments": {
+            "patterns": [
+                {
+                    "name": "comment.block",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        }
+	},
+	"scopeName": "source.aura"
+}
