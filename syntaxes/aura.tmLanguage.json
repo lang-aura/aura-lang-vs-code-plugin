@@ -23,7 +23,7 @@
             "name": "keyword.operator.new"
         },
         {
-            "match": "\\/",
+            "match": "(?<!\\w)\\/",
             "name": "keyword.operator.new"
         },
         {
