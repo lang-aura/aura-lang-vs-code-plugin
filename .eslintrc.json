@@ -19,9 +19,20 @@
         ],
         "@typescript-eslint/semi": "warn",
         "curly": "warn",
-        "eqeqeq": "warn",
+        "eqeqeq": "error",
         "no-throw-literal": "warn",
-        "semi": "off"
+        "semi": "off",
+        "array-callback-return": "error",
+        "no-await-in-loop": "warn",
+        "no-constructor-return": "error",
+        "no-duplicate-imports": "warn",
+        "no-unreachable-loop": "warn",
+        "no-unused-private-class-members": "warn",
+        "no-use-before-define": "error",
+        "camelcase": "warn",
+        "capitalized-comments": "off",
+        "default-case": "error",
+        "default-case-last": "error"
     },
     "ignorePatterns": [
         "out",
