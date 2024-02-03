@@ -8,6 +8,7 @@ export class FmtVSCodeCommand extends AuraVSCodeCommand {
     }
 
     // The fmt command doesn't produce any output to stdout, so instead it prints a success message
+    // eslint-disable-next-line no-unused-vars
     protected displaySuccessfulOutput(stdout: string): void {
         window.showInformationMessage("Aura project successfully formatted.");
     }
