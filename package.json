@@ -7,7 +7,7 @@
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -64,5 +64,8 @@
     "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.9"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
   }
 }
