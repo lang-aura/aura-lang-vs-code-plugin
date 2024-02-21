@@ -56,7 +56,7 @@
 			"patterns": [
                 {
                     "name": "keyword.control.aura",
-                    "match": "\\b(if|else|while|for|foreach|return|fn|import|mod|let|pub|in|mut|class|interface|defer|as|yield|check|struct)\\b"
+                    "match": "\\b(if|else|while|for|foreach|return|fn|import|mod|let|pub|in|mut|class|interface|defer|as|yield|check|struct|string|int|float|bool|map)\\b"
                 }
             ]
 		},
