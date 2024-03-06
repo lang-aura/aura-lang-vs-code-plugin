@@ -23,6 +23,10 @@
             "name": "keyword.operator.new"
         },
         {
+            "match": "\\%",
+            "name": "keyword.operator.new"
+        },
+        {
             "match": "(?<!\\w)\\/",
             "name": "keyword.operator.new"
         },
